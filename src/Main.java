@@ -33,5 +33,19 @@ public class Main {
         while (m.find()) {
             System.out.println(m.group(1));
         }
+
+        //practice with html example, get the URL, get the celebrity name
+        String html = "<div class=\"image\"><img src=\"http://cdn.posh24.se/images/:profile/0ecaee6d0139afcad8da914c5c495ca44\" alt=\"Lindsay Lohan\"/></div>";
+        Pattern p2 = Pattern.compile("<img src=\"(.*?)\"");
+        Matcher m2 = p2.matcher(html);
+        while(m2.find()) {
+            System.out.println("Image URL: " + m2.group(1));
+        }
+
+        p2 = Pattern.compile("alt=\"(.*?)\"");
+        m2 = p2.matcher(html);
+        while(m2.find()) {
+            System.out.println("Celebrity Name: " + m2.group(1));
+        }
     }
 }
